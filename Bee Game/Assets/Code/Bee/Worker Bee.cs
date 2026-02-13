@@ -1,5 +1,5 @@
 using UnityEngine;
-
+[System.Serializable]
 public class WorkerBee : Bee
 {
     bool containsPollen;
@@ -10,7 +10,7 @@ public class WorkerBee : Bee
         containsPollen = false;
         carryWeight = maxCarryWeight;
     }
-    public void harvestFlower(int pollenFlower)
+    public virtual void harvestFlower(int pollenFlower)
     {
         containsPollen = true;
         if(carryWeight +pollenAmount> pollenFlower)

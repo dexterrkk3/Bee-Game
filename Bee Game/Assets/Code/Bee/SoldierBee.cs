@@ -1,19 +1,14 @@
+using System.Collections.Generic;
 using UnityEngine;
-
+[System.Serializable]
 public class SoldierBee : WorkerBee
 {
+    public List<Ability> Abilities;
     public SoldierBee(int maxCarryWeight, float hp, float damage, float dodgeChance, float moveSpeed, float flySpeed) : base(maxCarryWeight, hp, damage, dodgeChance, moveSpeed, flySpeed)
     {
     }
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+    void assignAbilities(List<Ability> abilities)
     {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
+        Abilities = abilities;
     }
 }

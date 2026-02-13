@@ -1,4 +1,5 @@
 using UnityEngine;
+[System.Serializable]
 
 public class Bee
 {
@@ -19,7 +20,7 @@ public class Bee
         this.flySpeed = flySpeed;
         alive = true;
     }
-    public void takeDamage(float damage)
+    public virtual void takeDamage(float damage)
     {
         float x = Random.Range(0, 100);
         if (x < dodgeChance)
