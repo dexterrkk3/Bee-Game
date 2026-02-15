@@ -19,6 +19,7 @@ public class RogueBee : MonoBehaviour, ISoldier
     {
         controller = GetComponent<IBrain>();
         suicideStrike = new SuicideStrike();
+        suicideStrike.initialize();
         rogueBee = new SoldierBee(maxCarryWeight, maxHp, damage, dodgeChance, moveSpeed, floatspeed);
         rogueBee.Abilities.Add(suicideStrike);
     }
@@ -26,12 +27,12 @@ public class RogueBee : MonoBehaviour, ISoldier
     {
         rogueBee.takeDamage(damage);
     }
-    public void onTurnStart()
+    public float onTurnStart()
     {
         int action = controller.chooseAction(this);
         Ability ability = rogueBee.Abilities[action];
-        ability.attack(damage);
         ability.changeStat(rogueBee);
+        return ability.attack(damage);
     }
     public virtual string getName() { return myName; }
     public List<Ability> getAbilities() { return rogueBee.Abilities; }

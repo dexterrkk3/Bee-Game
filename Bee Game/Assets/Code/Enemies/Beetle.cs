@@ -17,6 +17,7 @@ public class Beetle : MonoBehaviour, ISoldier
         controller = GetComponent<IBrain>();
         enemy = new Enemy(maxHp, damage, dodgeChance, moveSpeed);
         Ability headBash = new HeadBash();
+        headBash.initialize();
         abilities.Add(headBash);
         Debug.Log(enemy);
 
@@ -27,9 +28,12 @@ public class Beetle : MonoBehaviour, ISoldier
     { 
         enemy.takeDamage(damage);
     }
-    public void onTurnStart() 
-    { 
-
+    public float onTurnStart() 
+    {
+        int action = controller.chooseAction(this);
+        Ability ability = abilities[action];
+        return ability.attack(damage);
+        //ability.changeStat(enemy);
     }
     public float getSpeed()
     {

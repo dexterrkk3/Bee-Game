@@ -34,11 +34,13 @@ public class BattleRunner : MonoBehaviour
         bool oneSideDied = false;
         while (!oneSideDied)
         {
+            float damage = 0;
             for (int i = 0; i < priorityOrder.Count; i++)
             {
                 ISoldier currentSoldier = priorityOrder[i];
+                currentSoldier.takeDamage(damage);
                 Debug.Log(currentSoldier + " " + currentSoldier.getSpeed());
-                currentSoldier.onTurnStart();
+                damage = currentSoldier.onTurnStart();
                 oneSideDied = currentSoldier.isDead();
             }
         }

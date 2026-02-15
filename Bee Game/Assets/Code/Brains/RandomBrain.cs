@@ -16,12 +16,14 @@ public class RandomBrain : MonoBehaviour, IBrain
     }
     public int chooseAction(ISoldier soldier)
     {
-        List<Ability> abilities = soldier.getAbilities();
+        List<Ability> abilities = new List<Ability>();
+        abilities =   soldier.getAbilities();
         Debug.Log(abilities.Count);
         for (int i = 0; i < abilities.Count; i++)
         {
             //lists all abilities
             Ability ability = abilities[i];
+            Debug.Log(ability);
             Debug.Log(ability.getName());
         }
         //picks a random action

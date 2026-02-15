@@ -5,6 +5,7 @@ public class Ability
     private string name; 
     private string description;
     private float mult;
+    public virtual void initialize() { }
     public virtual float attack(float damage)
     {
         return damage * mult; 
