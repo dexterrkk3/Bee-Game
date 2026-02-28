@@ -27,6 +27,8 @@ public class Beetle : MonoBehaviour, ISoldier
     public  void takeDamage(float damage) 
     { 
         enemy.takeDamage(damage);
+        float hp = enemy.getHP();
+        Debug.Log(myName + " " + hp);
     }
     public float onTurnStart() 
     {

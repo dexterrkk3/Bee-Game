@@ -24,7 +24,6 @@ public class RandomBrain : MonoBehaviour, IBrain
             //lists all abilities
             Ability ability = abilities[i];
             Debug.Log(ability);
-            Debug.Log(ability.getName());
         }
         //picks a random action
         int rand = Random.Range(0, abilities.Count);

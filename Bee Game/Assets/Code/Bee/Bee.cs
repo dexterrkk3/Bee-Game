@@ -23,14 +23,22 @@ public class Bee
     public virtual void takeDamage(float damage)
     {
         float x = Random.Range(0, 100);
-        if (x < dodgeChance)
+        if (x > dodgeChance)
         {
             hp -= damage;
+        }
+        else
+        {
+            Debug.Log("Dodged");
         }
         if(hp <= 0)
         {
             die();
         }
+    }
+    public float getHP()
+    {
+        return hp;
     }
     public bool isAlive() { return alive; }
     private void die()

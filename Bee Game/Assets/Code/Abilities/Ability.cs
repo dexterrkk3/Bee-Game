@@ -8,7 +8,7 @@ public class Ability
     public virtual void initialize() { }
     public virtual float attack(float damage)
     {
-        return damage * mult; 
+        return 0;
     }
     public virtual void changeStat(SoldierBee bee)
     {

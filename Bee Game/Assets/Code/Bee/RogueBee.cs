@@ -26,6 +26,8 @@ public class RogueBee : MonoBehaviour, ISoldier
     public void takeDamage(float damage)
     {
         rogueBee.takeDamage(damage);
+        float hp = rogueBee.getHP();
+        Debug.Log(name + " " + hp);
     }
     public float onTurnStart()
     {

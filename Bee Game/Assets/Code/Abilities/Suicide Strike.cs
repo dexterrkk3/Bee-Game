@@ -17,6 +17,6 @@ public class SuicideStrike : Ability
     }
     public override void changeStat(SoldierBee bee)
     {
-        bee.takeDamage(100);
+        //bee.takeDamage(100);
     }
 }
