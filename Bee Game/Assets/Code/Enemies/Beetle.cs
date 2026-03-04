@@ -20,7 +20,6 @@ public class Beetle : MonoBehaviour, ISoldier
         headBash.initialize();
         abilities.Add(headBash);
         Debug.Log(enemy);
-
     }
     public string getName() { return myName; }
     public List<Ability> getAbilities() { return abilities; }

@@ -15,6 +15,11 @@ public class GameManager : MonoBehaviour
     {
 
     }
+    public GameObject spawnCreature(string characterName)
+    {
+        Debug.Log("Spawned: " + characterName);
+        return Resources.Load<GameObject>(characterName);
+    }
     // Update is called once per frame
     void Update()
     {

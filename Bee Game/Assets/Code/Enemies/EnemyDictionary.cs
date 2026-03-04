@@ -1,10 +1,8 @@
 using NUnit.Framework;
-using System.Collections.Generic;
 using UnityEngine;
 
-public class Player : MonoBehaviour
+public class EnemyDictionary : MonoBehaviour
 {
-    public List<SoldierBee> soldiers;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
