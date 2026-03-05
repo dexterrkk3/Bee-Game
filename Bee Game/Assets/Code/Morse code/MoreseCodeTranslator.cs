@@ -4,8 +4,12 @@ using System.Collections.Generic;
 using Unity.VisualScripting;
 public class MoreseCodeTranslator : MonoBehaviour
 {
-    public AudioSource dot;
-    public AudioSource dash; 
+    public AudioSource dialogueSOund;
+    public AudioClip dot;
+    public AudioClip dash;
+    Queue<AudioClip> message = new Queue<AudioClip>();
+    public float delay = .2f;
+    float timer;
     private Dictionary<char, string> morseCodeDict = new Dictionary<char, string>() { 
         {'a', ".-" }, {'b', "-..." }, { 'c', "-.-."}, { 'd', "-.."}, { 'e', "."}, { 'f', "..-."}, { 'g', "--."}, { 'h', "..."}, { 'i', ".."},
         { 'j', ".---"}, { 'k', "-.-"}, { 'l', ".-.."}, { 'm', "--"}, {'n', "-."}, { 'o', "---"}, { 'p', ".--."}, {'q', "--.-"}, {'r', ".-."},
@@ -31,18 +35,31 @@ public class MoreseCodeTranslator : MonoBehaviour
     }
     public void morseCodeToSound(string morse)
     {
-        float timeDelay = 0.0f; 
         foreach (char c in morse)
         {
-            timeDelay += Time.deltaTime;
             if (c == '.')
             {
-                dot.PlayDelayed(timeDelay);
+                message.Enqueue(dot);
+            }
+            else if(c == '/')
+            {
+                //code in silence and wait
             }
             else
             {
-                dash.PlayDelayed(timeDelay);
+                message.Enqueue(dash);
             }
+        }
+    }
+    private void FixedUpdate()
+    {
+        timer -= Time.deltaTime;
+        if (!dialogueSOund.isPlaying && message.Count > 0 && timer <= 0)
+        {
+            AudioClip next = message.Dequeue();
+            dialogueSOund.clip = next;
+            dialogueSOund.Play();
+            timer = delay;
         }
     }
 }
