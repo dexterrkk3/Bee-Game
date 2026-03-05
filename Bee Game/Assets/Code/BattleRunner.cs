@@ -8,24 +8,29 @@ public class BattleRunner : MonoBehaviour
 {
     public GameObject soldierBeeObject;
     public GameObject enemyObject;
+    private List<ISoldier> allies = new List<ISoldier>();
+    private List<ISoldier> enemies = new List<ISoldier>();
     void Awake()
     {
-        ISoldier bee = soldierBeeObject.GetComponent<ISoldier>();
-        bee.Initialize();
-        ISoldier enemy = enemyObject.GetComponent<ISoldier>();
-        enemy.Initialize();
-        List<ISoldier> allies = new List<ISoldier>();
-        List<ISoldier> enemies = new List<ISoldier>();
-        allies.Add(bee);
-        enemies.Add(enemy);
-        startBattle(allies,enemies);
+    }
+    public void addBee(SoldierBee bee)
+    {
+        ISoldier beeSoldier = (ISoldier) bee;
+        beeSoldier.Initialize();
+        allies.Add(beeSoldier);
+    }
+    public void addEnemy(Enemy enemy)
+    {
+        ISoldier enemySoldier = (ISoldier) enemy;
+        enemySoldier.Initialize();
+        enemies.Add(enemySoldier);
     }
     // Update is called once per frame
     void Update()
     {
         
     }
-    public void startBattle(List<ISoldier> allies, List<ISoldier> enemies)
+    public void startBattle()
     {
         List<ISoldier> priorityOrder = new List<ISoldier>();
         priorityOrder.AddRange(allies);

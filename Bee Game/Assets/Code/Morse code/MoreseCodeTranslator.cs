@@ -50,7 +50,7 @@ public class MoreseCodeTranslator : MonoBehaviour
             {
                 message.Enqueue(dash);
             }
-            Debug.Log("queued");
+            //Debug.Log("queued");
         }
     }
     private void FixedUpdate()
