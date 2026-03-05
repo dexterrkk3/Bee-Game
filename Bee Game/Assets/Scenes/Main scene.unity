@@ -231,6 +231,7 @@ MonoBehaviour:
   dialogueSOund: {fileID: 952226123}
   dot: {fileID: 8300000, guid: d404414d83696b1449e3085540d4d2d4, type: 3}
   dash: {fileID: 8300000, guid: 9a9ed4bf514478c42888b10c743d05a0, type: 3}
+  silence: {fileID: 8300000, guid: f6b7afed8ca524846ae8fed08f5192c6, type: 3}
   delay: 0.1
 --- !u!82 &952226123
 AudioSource:
@@ -244,7 +245,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
   m_Resource: {fileID: 0}
-  m_PlayOnAwake: 1
+  m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
   Loop: 0
